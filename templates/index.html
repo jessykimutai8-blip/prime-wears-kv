@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PRIME WEARS KV | Quality Shoes</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            PRIME <span>WEARS</span>
+            <small>KV</small>
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/shoes">Shoes</a>
+            <a href="/order">
+        </div>
+
+        <a href="/order" class="nav-button">
+            Order Now
+        </a>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="location">
+                📍 Kwa Vonza
+            </div>
+
+            <h1>
+                Step Into Your
+                <span>Perfect Style.</span>
+            </h1>
+
+            <p>
+                Discover quality, stylish and affordable shoes
+                at PRIME WEARS KV.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="/shoes" class="primary-button">
+                    Shop Shoes 👟
+                </a>
+
+                <a href="/order" class="secondary-button">
+                    Place Order
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-image">
+
+            <img
+                src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=85"
+                alt="PRIME WEARS shoes">
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+
+    <section class="features">
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                👟
+            </div>
+
+            <h3>Quality Shoes</h3>
+
+            <p>
+                Stylish footwear selected for comfort
+                and everyday use.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                💰
+            </div>
+
+            <h3>Affordable Prices</h3>
+
+            <p>
+                Get great-looking shoes without
+                breaking the bank.
+            </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🚚
+            </div>
+
+            <h3>Easy Ordering</h3>
+
+            <p>
+                Place your order quickly and
+                conveniently through WhatsApp.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+
+    <section class="products-section">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="small-title">
+                    OUR COLLECTION
+                </span>
+
+                <h2>Featured Shoes</h2>
+            </div>
+
+            <a href="/shoes">
+                View All →
+            </a>
+
+        </div>
+
+
+        <div class="products-grid">
+
+            {% for shoe in shoes[:4] %}
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img src="{{ shoe.image }}"
+                         alt="{{ shoe.name }}">
+
+                    <span class="category">
+                        {{ shoe.category }}
+                    </span>
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>
+                        {{ shoe.name }}
+                    </h3>
+
+                    <div class="product-bottom">
+
+                        <strong>
+                            KSh {{ "{:,}".format(shoe.price) }}
+                        </strong>
+
+                        <a href="/order" class="small-order">
+                            Order
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+
+    <!-- CALL TO ACTION -->
+
+    <section class="cta">
+
+        <div>
+
+            <span>READY TO ORDER?</span>
+
+            <h2>
+                Find your next favourite pair.
+            </h2>
+
+            <p>
+                PRIME WEARS KV — Kwa Vonza
+            </p>
+
+        </div>
+
+        <a href="/order">
+            Order Now →
+        </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-logo">
+            PRIME WEARS <span>KV</span>
+        </div>
+
+        <p>
+            Quality shoes. Great style. Simple ordering.
+        </p>
+
+        <p>
+            📍 Kwa Vonza
+            &nbsp; | &nbsp;
+            📞 +254 768 644 112
+        </p>
+
+        <div class="copyright">
+            © 2026 PRIME WEARS KV. All rights reserved.
+        </div>
+
+    </footer>
+
+
+</body>
+</html>

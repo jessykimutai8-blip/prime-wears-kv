@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Shoes | PRIME WEARS KV</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            PRIME <span>WEARS</span>
+            <small>KV</small>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/shoes" class="active">
+                Shoes
+            </a>
+
+            <a href="/order">
+                Order
+            </a>
+
+        </div>
+
+        <a href="/order" class="nav-button">
+            Order Now
+        </a>
+
+    </nav>
+
+
+    <!-- PAGE HEADER -->
+
+    <section class="page-header">
+
+        <span>
+            PRIME WEARS KV
+        </span>
+
+        <h1>
+            Our Shoes
+        </h1>
+
+        <p>
+            Choose your favourite pair and place your order.
+        </p>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+
+    <section class="all-products">
+
+        <div class="products-grid">
+
+            {% for shoe in shoes %}
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img src="{{ shoe.image }}"
+                         alt="{{ shoe.name }}">
+
+                    <span class="category">
+                        {{ shoe.category }}
+                    </span>
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>
+                        {{ shoe.name }}
+                    </h3>
+
+                    <p class="product-category">
+                        {{ shoe.category }}
+                    </p>
+
+                    <div class="product-bottom">
+
+                        <strong>
+                            KSh {{ "{:,}".format(shoe.price) }}
+                        </strong>
+
+                        <a
+                            href="/order?shoe={{ shoe.name }}"
+                            class="small-order">
+
+                            Order
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-logo">
+            PRIME WEARS <span>KV</span>
+        </div>
+
+        <p>
+            📍 Kwa Vonza
+            &nbsp; | &nbsp;
+            📞 +254 768 644 112
+        </p>
+
+        <div class="copyright">
+            © 2026 PRIME WEARS KV
+        </div>
+
+    </footer>
+
+</body>
+</html>

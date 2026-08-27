@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Place Order | PRIME WEARS KV</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            PRIME <span>WEARS</span>
+            <small>KV</small>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">
+                Home
+            </a>
+
+            <a href="/shoes">
+                Shoes
+            </a>
+
+            <a href="/order" class="active">
+                Order
+            </a>
+
+        </div>
+
+        <a href="/order" class="nav-button">
+            Order Now
+        </a>
+
+    </nav>
+
+
+    <!-- ORDER PAGE -->
+
+    <section class="order-page">
+
+        <div class="order-intro">
+
+            <span>
+                PRIME WEARS KV
+            </span>
+
+            <h1>
+                Place Your Order
+            </h1>
+
+            <p>
+                Choose your shoe, select your size and
+                send your order directly to WhatsApp.
+            </p>
+
+            <div class="contact-box">
+
+                <strong>
+                    📍 Kwa Vonza
+                </strong>
+
+                <strong>
+                    📞 +254 768 644 112
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- ORDER FORM -->
+
+        <div class="order-container">
+
+            <form id="orderForm">
+
+                <!-- CUSTOMER -->
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="customerName">
+                            Your Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customerName"
+                            placeholder="Enter your full name"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="customerPhone">
+                            Phone Number *
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="customerPhone"
+                            placeholder="07XXXXXXXX"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SHOE -->
+
+                <div class="form-group">
+
+                    <label for="shoeName">
+                        Choose Shoe *
+                    </label>
+
+                    <select id="shoeName" required>
+
+                        <option value="">
+                            -- Select a shoe --
+                        </option>
+
+                        {% for shoe in shoes %}
+
+                        <option
+                            value="{{ shoe.name }}"
+                            data-price="{{ shoe.price }}">
+
+                            {{ shoe.name }} -
+                            KSh {{ "{:,}".format(shoe.price) }}
+
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+
+                <!-- SIZE + QUANTITY -->
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="shoeSize">
+                            Shoe Size *
+                        </label>
+
+                        <select id="shoeSize" required>
+
+                            <option value="">
+                                Select shoe size
+                            </option>
+
+                            <option value="36">36</option>
+                            <option value="37">37</option>
+                            <option value="38">38</option>
+                            <option value="39">39</option>
+                            <option value="40">40</option>
+                            <option value="41">41</option>
+                            <option value="42">42</option>
+                            <option value="43">43</option>
+                            <option value="44">44</option>
+                            <option value="45">45</option>
+                            <option value="46">46</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="quantity">
+                            Quantity *
+                        </label>
+
+                        <input
+                            type="number"
+                            id="quantity"
+                            min="1"
+                            value="1"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LOCATION -->
+
+                <div class="form-group">
+
+                    <label for="location">
+                        Delivery Location *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        placeholder="Enter delivery location"
+                        required>
+
+                </div>
+
+
+                <!-- MESSAGE -->
+
+                <div class="form-group">
+
+                    <label for="message">
+                        Additional Message
+                    </label>
+
+                    <textarea
+                        id="message"
+                        rows="4"
+                        placeholder="Any additional information?"></textarea>
+
+                </div>
+
+
+                <!-- TOTAL -->
+
+                <div class="order-total">
+
+                    <span>
+                        Estimated Total
+                    </span>
+
+                    <strong id="totalPrice">
+                        KSh 0
+                    </strong>
+
+                </div>
+
+
+                <!-- WHATSAPP -->
+
+                <button
+                    type="submit"
+                    class="whatsapp-button">
+
+                    💬 Send Order via WhatsApp
+
+                </button>
+
+
+                <p class="order-note">
+
+                    Your order will be prepared and opened
+                    in WhatsApp for confirmation.
+
+                </p>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-logo">
+            PRIME WEARS <span>KV</span>
+        </div>
+
+        <p>
+            Quality shoes. Great style. Simple ordering.
+        </p>
+
+        <p>
+            📍 Kwa Vonza
+            &nbsp; | &nbsp;
+            📞 +254 768 644 112
+        </p>
+
+        <div class="copyright">
+            © 2026 PRIME WEARS KV
+        </div>
+
+    </footer>
+
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>
